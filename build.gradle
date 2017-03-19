@@ -15,7 +15,7 @@ apply plugin: 'application'
 apply plugin: 'com.bmuschko.docker-remote-api'
 
 
-mainClassName = "com.grosslicht.unitbot.PancakeKt"
+mainClassName = "com.grosslicht.pancake.PancakeKt"
 
 // In this section you declare where to find the dependencies of your project
 repositories {
