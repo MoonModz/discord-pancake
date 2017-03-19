@@ -20,5 +20,8 @@ fun main(args: Array<String>) {
     StreamManager.messages.subscribe(PlayCommand())
     StreamManager.messages.subscribe(WhoCommand())
     StreamManager.messages.subscribe(YesOrNoCommand())
+    StreamManager.messages.subscribe(StatusCommand())
+    val shouldCheckPalindromes = System.getenv("CHECK_PALINDROME").toBoolean()
+    if (shouldCheckPalindromes) StreamManager.messages.subscribe(PalindromeDetector())
     val jda = builder.buildBlocking()
 }
