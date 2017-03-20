@@ -11,14 +11,24 @@ class PalindromeDetector : BaseCommand() {
     val wordPalindromeEmoji: String = "🔄"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.message.strippedContent.length < 4 || t.message.author.isBot) return
-        val normalizedMessage = t.message.strippedContent.replace(Regex("[^a-zA-Z ]"), "").toLowerCase()
-        if (isPalindrome(normalizedMessage)) {
+        val normalizedMessage = normalizeSentence(t.message.strippedContent)
+        if (isSentencePalindrom(normalizedMessage)) {
             t.message.addReaction(sentencePalindromeEmoji).queue()
             return
         }
         if (normalizedMessage.split(Regex("\\s+")).any { isPalindrome(it) }) {
             t.message.addReaction(wordPalindromeEmoji).queue()
         }
+    }
+
+    fun isSentencePalindrom(sentence: String): Boolean {
+        val trimmedSentence = sentence.replace(Regex("\\s+"), "")
+        if (trimmedSentence.length < 4) return false
+        return isPalindrome(trimmedSentence)
+    }
+
+    fun normalizeSentence(sentence: String): String {
+        return sentence.replace(Regex("[^\\p{IsLatin}\\s]"), "").toLowerCase()
     }
 
     fun isPalindrome(word: String): Boolean {

@@ -7,6 +7,7 @@ import net.dv8tion.jda.core.events.message.MessageReceivedEvent
  * Created by patrickgrosslicht on 19/03/17.
  */
 class StatusCommand : BaseCommand() {
+    override val moduleName = "status"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.id != "135726717363945472") return
         when {

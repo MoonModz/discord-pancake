@@ -22,9 +22,7 @@ repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter() //This prevents issues with transitive dependencies
-    maven {
-        url  "https://jitpack.io"
-    }
+    maven { url  "https://jitpack.io" }
     mavenCentral()
 }
 
@@ -50,14 +48,15 @@ buildscript {
     ext.kotlin_version = '1.1.1'
     repositories {
         mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.bmuschko:gradle-docker-plugin:3.0.3'
+        classpath 'com.bmuschko:gradle-docker-plugin:3.0.6'
     }
 }
 
-def versionObj = new Version(major: 2, minor: 0, revision: 0)
+def versionObj = new Version(major: 2, minor: 0, revision: 1)
 project.version = "${versionObj}"
 
 docker {
