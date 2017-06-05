@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     val builder = JDABuilder(AccountType.BOT)
     val token = System.getenv("DISCORD_API_TOKEN")
     builder.setToken(token)
-    builder.addListener(RxConverter())
+    builder.addEventListener(RxConverter())
     StreamManager.messages.subscribe(BeepCommand())
     StreamManager.messages.subscribe(CommandsCommand())
     StreamManager.messages.subscribe(FriendshipCommand())
