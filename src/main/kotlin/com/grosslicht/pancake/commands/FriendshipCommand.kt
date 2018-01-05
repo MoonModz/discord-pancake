@@ -9,7 +9,7 @@ class FriendshipCommand : BaseCommand() {
     override val moduleName = "friendship"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent == "!friendship") {
+        if (t.message.contentStripped == "!friendship") {
             t.textChannel.sendMessage("Did anypony say magic?").queue()
         }
     }

@@ -13,7 +13,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter
 class RxConverter : ListenerAdapter() {
     companion object : KLogging()
     override fun onMessageReceived(event: MessageReceivedEvent) {
-        logger.debug { event.message.content }
+        logger.debug { event.message.contentDisplay }
         StreamManager.messages.onNext(event)
     }
 }

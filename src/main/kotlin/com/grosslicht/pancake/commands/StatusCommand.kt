@@ -11,9 +11,9 @@ class StatusCommand : BaseCommand() {
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.id != "135726717363945472") return
         when {
-            t.message.content.startsWith("!disable ") -> disable(t.message.content.removePrefix("!disable "))
-            t.message.content.startsWith("!enable ") -> enable(t.message.content.removePrefix("!enable "))
-            t.message.content == "!list" -> t.channel.sendMessage(list()).queue()
+            t.message.contentDisplay.startsWith("!disable ") -> disable(t.message.contentDisplay.removePrefix("!disable "))
+            t.message.contentDisplay.startsWith("!enable ") -> enable(t.message.contentDisplay.removePrefix("!enable "))
+            t.message.contentDisplay == "!list" -> t.channel.sendMessage(list()).queue()
         }
     }
 

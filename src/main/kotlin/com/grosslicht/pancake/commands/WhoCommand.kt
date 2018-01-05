@@ -11,11 +11,11 @@ class WhoCommand : BaseCommand() {
     val random = SecureRandom()
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent.contains("!who")) {
+        if (t.message.contentStripped.contains("!who")) {
             val members = t.guild.members
             val rand = random.nextInt(members.count())
             val member = members[rand].effectiveName
-            t.textChannel.sendMessage(t.message.content.replace("!who", member)).queue()
+            t.textChannel.sendMessage(t.message.contentDisplay.replace("!who", member)).queue()
         }
     }
 }

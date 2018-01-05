@@ -23,7 +23,7 @@ class CommandsCommand : BaseCommand() {
 
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent == "!commands") {
+        if (t.message.contentStripped == "!commands") {
             t.textChannel.sendMessage(commandsText).queue()
         }
     }

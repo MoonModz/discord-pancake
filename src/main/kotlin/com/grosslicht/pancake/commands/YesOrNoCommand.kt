@@ -13,11 +13,11 @@ class YesOrNoCommand : BaseCommand() {
     val thumbsDown: String = "👎"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent.contains("!yesorno")) {
+        if (t.message.contentStripped.contains("!yesorno")) {
             t.textChannel.sendMessage(if (random.nextBoolean()) "Yes." else "No.").queue()
             return
         }
-        if (t.message.strippedContent.contains("!updown")) {
+        if (t.message.contentStripped.contains("!updown")) {
             t.message.addReaction(if (random.nextBoolean()) thumbsUp else thumbsDown).queue()
             return
         }

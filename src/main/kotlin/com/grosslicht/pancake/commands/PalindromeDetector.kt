@@ -10,7 +10,7 @@ class PalindromeDetector : BaseCommand() {
     val sentencePalindromeEmoji: String = "🔁"
     val wordPalindromeEmoji: String = "🔄"
     override fun onNext(t: MessageReceivedEvent) {
-        if (t.message.strippedContent.length < 4 || t.message.author.isBot) return
+        if (t.message.contentStripped.length < 4 || t.message.author.isBot) return
         val normalizedMessage = normalizeSentence(t.message.strippedContent)
         if (isSentencePalindrom(normalizedMessage)) {
             t.message.addReaction(sentencePalindromeEmoji).queue()

@@ -9,7 +9,7 @@ class BeepCommand : BaseCommand() {
     override val moduleName = "beep"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent == "!beep") {
+        if (t.message.contentStripped == "!beep") {
             t.textChannel.sendMessage("boop").queue()
         }
     }

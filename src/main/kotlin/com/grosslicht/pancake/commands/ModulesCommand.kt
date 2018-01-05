@@ -16,7 +16,7 @@ class ModulesCommand : BaseCommand() {
 
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
-        if (t.message.strippedContent == "!modules") {
+        if (t.message.contentStripped == "!modules") {
             t.textChannel.sendMessage(modulesText).queue()
         }
     }
