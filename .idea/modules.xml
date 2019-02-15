@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Pancake.iml" filepath="$PROJECT_DIR$/.idea/modules/Pancake.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Pancake_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Pancake_main.iml" group="Pancake" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Pancake_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Pancake_test.iml" group="Pancake" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.iml" filepath="$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.grosslicht.pancake.test.iml" />
     </modules>
   </component>
 </project>

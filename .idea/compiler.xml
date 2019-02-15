@@ -2,8 +2,8 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel>
-      <module name="Pancake_main" target="1.8" />
-      <module name="Pancake_test" target="1.8" />
+      <module name="com.grosslicht.pancake.main" target="1.8" />
+      <module name="com.grosslicht.pancake.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -3,14 +3,11 @@ package com.grosslicht.pancake.commands
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 import java.security.SecureRandom
 
-/**
- * Created by patrickgrosslicht on 19/03/17.
- */
 class YesOrNoCommand : BaseCommand() {
     override val moduleName = "yesorno"
-    val random = SecureRandom()
-    val thumbsUp: String = "👍"
-    val thumbsDown: String = "👎"
+    private val random = SecureRandom()
+    private val thumbsUp: String = "👍"
+    private val thumbsDown: String = "👎"
     override fun onNext(t: MessageReceivedEvent) {
         if (t.author.isBot) return
         if (t.message.contentStripped.contains("!yesorno")) {

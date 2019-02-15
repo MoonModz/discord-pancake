@@ -2,9 +2,6 @@ package com.grosslicht.pancake.commands
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 
-/**
- * Created by patrickgrosslicht on 19/03/17.
- */
 class FriendshipCommand : BaseCommand() {
     override val moduleName = "friendship"
     override fun onNext(t: MessageReceivedEvent) {

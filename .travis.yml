@@ -1,28 +1,23 @@
-sudo: required
+dist: xenial
 language: java
 jdk:
-- oraclejdk8
-services:
-- docker
+  - openjdk8
 before_cache:
-- rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
-- rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
 cache:
   directories:
-  - "$HOME/.gradle/caches/"
-  - "$HOME/.gradle/wrapper/"
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/
 env:
   global:
-  - CONTAINER_NAME="pdgwien/discord-pancake"
-  - secure: qsc7Ud3zz/4SLj9k5fV4axVVTVJdR1UsmItSx9xEBKz+vJL46nh4gYSnW1WNdc0Rbecu0ZOtrLN/u0CAKkEe3v6+SPT2tsXi0wvlMEAUS8YWDXW84I2zZkRDUuH6hszsfBwTeorW54ttxqbbgp0ZoaQvRevQAQTC3dZczrll6Rs1jrvwmmZR6wDKO1qZhFLfQTCbw0SVafFBmH5c/UAzF5u6+3R8rEJT+Gen0IeS4Bv1bSqLDez6byZSC+AJPD9BWbN9aWkCcXVWbvnb4IbVPPK6COiKNxywVjX9FC8hE9PAVQyGrDW+zvEEn5cPVe0kxm96PQsUFKqFHcPWsHebbP1UtQwLAX7FwQl3oAn+dOCmf87l1oLAawzqWWDAq2EZYHGh3sSy5PAGMT6xX5im/EUxDtxFOIhNyyoIn4pZAP9NfOIRChSPib0HzHwlKS4YVSrUkw2jGYoH/u3H7Sa0HHpkCdG0aHgdRgq+PoqJJp2nRn7eVsPHjozAL+LF+WZhvXAhR4gIepuUTT+dXtUyyDF5Hou/f0I+04umTFSd+88pgx6xE7540+d5bW38q/30UK1asN8H0AGaHU4+Wd5OIyndsTuQs7+6MSNiYxdAP+XG3s3k9xSuPj+ZchlT9Id/0SrnSburlSXxSSyY95l8moPyRIiGh6O9HdzJTiSBSS8=
+    - CONTAINER_NAME="pdgwien/discord-pancake"
+    - secure: qsc7Ud3zz/4SLj9k5fV4axVVTVJdR1UsmItSx9xEBKz+vJL46nh4gYSnW1WNdc0Rbecu0ZOtrLN/u0CAKkEe3v6+SPT2tsXi0wvlMEAUS8YWDXW84I2zZkRDUuH6hszsfBwTeorW54ttxqbbgp0ZoaQvRevQAQTC3dZczrll6Rs1jrvwmmZR6wDKO1qZhFLfQTCbw0SVafFBmH5c/UAzF5u6+3R8rEJT+Gen0IeS4Bv1bSqLDez6byZSC+AJPD9BWbN9aWkCcXVWbvnb4IbVPPK6COiKNxywVjX9FC8hE9PAVQyGrDW+zvEEn5cPVe0kxm96PQsUFKqFHcPWsHebbP1UtQwLAX7FwQl3oAn+dOCmf87l1oLAawzqWWDAq2EZYHGh3sSy5PAGMT6xX5im/EUxDtxFOIhNyyoIn4pZAP9NfOIRChSPib0HzHwlKS4YVSrUkw2jGYoH/u3H7Sa0HHpkCdG0aHgdRgq+PoqJJp2nRn7eVsPHjozAL+LF+WZhvXAhR4gIepuUTT+dXtUyyDF5Hou/f0I+04umTFSd+88pgx6xE7540+d5bW38q/30UK1asN8H0AGaHU4+Wd5OIyndsTuQs7+6MSNiYxdAP+XG3s3k9xSuPj+ZchlT9Id/0SrnSburlSXxSSyY95l8moPyRIiGh6O9HdzJTiSBSS8=
 
 install: true
-before_script:
-- docker login -u="pdgwien" -p="$DOCKER_PASSWORD"
 
 script:
-- gradle build assembleDist dockerBuildImage tagAsLatest
-- docker push $CONTAINER_NAME
+  - ./gradlew --no-daemon build jib
 
 notifications:
   webhooks:

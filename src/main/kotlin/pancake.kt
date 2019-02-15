@@ -1,12 +1,17 @@
 package com.grosslicht.pancake
 
-import com.grosslicht.pancake.commands.*
+import com.grosslicht.pancake.commands.BeepCommand
+import com.grosslicht.pancake.commands.CommandsCommand
+import com.grosslicht.pancake.commands.FriendshipCommand
+import com.grosslicht.pancake.commands.ModulesCommand
+import com.grosslicht.pancake.commands.PalindromeDetector
+import com.grosslicht.pancake.commands.PlayCommand
+import com.grosslicht.pancake.commands.RxConverter
+import com.grosslicht.pancake.commands.StatusCommand
+import com.grosslicht.pancake.commands.WhoCommand
+import com.grosslicht.pancake.commands.YesOrNoCommand
 import net.dv8tion.jda.core.AccountType
 import net.dv8tion.jda.core.JDABuilder
-
-/**
- * Created by patrickgrosslicht on 13/10/16.
- */
 
 fun main(args: Array<String>) {
     val builder = JDABuilder(AccountType.BOT)
@@ -23,5 +28,5 @@ fun main(args: Array<String>) {
     StreamManager.messages.subscribe(StatusCommand())
     val shouldCheckPalindromes = System.getenv("CHECK_PALINDROME").toBoolean()
     if (shouldCheckPalindromes) StreamManager.messages.subscribe(PalindromeDetector())
-    val jda = builder.buildBlocking()
+    val jda = builder.build().awaitReady()
 }

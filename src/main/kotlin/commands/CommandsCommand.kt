@@ -2,12 +2,9 @@ package com.grosslicht.pancake.commands
 
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 
-/**
- * Created by patrickgrosslicht on 19/03/17.
- */
 class CommandsCommand : BaseCommand() {
     override val moduleName = "commands"
-    val commandsText = """
+    private val commandsText = """
         |help:    Gets description of given command.
         |commands:    Lists all available commands.
         |modules:    Lists all installed modules.

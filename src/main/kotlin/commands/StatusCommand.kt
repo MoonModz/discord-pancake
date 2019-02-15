@@ -3,9 +3,6 @@ package com.grosslicht.pancake.commands
 import com.grosslicht.pancake.StreamManager
 import net.dv8tion.jda.core.events.message.MessageReceivedEvent
 
-/**
- * Created by patrickgrosslicht on 19/03/17.
- */
 class StatusCommand : BaseCommand() {
     override val moduleName = "status"
     override fun onNext(t: MessageReceivedEvent) {
@@ -17,11 +14,11 @@ class StatusCommand : BaseCommand() {
         }
     }
 
-    fun disable(module: String) {
+    private fun disable(module: String) {
         StreamManager.disposables.remove(module)?.dispose()
     }
 
-    fun enable(module: String) {
+    private fun enable(module: String) {
         when (module) {
             "beep" -> StreamManager.messages.subscribe(BeepCommand())
             "commands" -> StreamManager.messages.subscribe(CommandsCommand())
@@ -34,7 +31,7 @@ class StatusCommand : BaseCommand() {
         }
     }
 
-    fun list(): String {
+    private fun list(): String {
         return StreamManager.disposables.map { it.key }.joinToString(", ")
     }
 }
