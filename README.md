@@ -3,4 +3,4 @@
 Set the following environment variables to configure the bot:
 
 * `DISCORD_API_TOKEN` = API token
-* `CHECK_PALINDROME` = activates palindrome checker feature
+* `CHECK_PALINDROME` = I Have Crippling Depression activates palindrome checker feature
